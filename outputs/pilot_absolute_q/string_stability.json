@@ -1,0 +1,42 @@
+[
+  {
+    "controller": "CTG-PID",
+    "leader_peak_mps": 2.3999999999999915,
+    "last_follower_peak_mps": 1.7636297107509833,
+    "amplification_ratio": 0.7348457128129123,
+    "string_stable_under_test": true,
+    "filter_interventions": 0,
+    "vehicle_count": 4,
+    "duration_s": 32.0
+  },
+  {
+    "controller": "MPC",
+    "leader_peak_mps": 2.3999999999999915,
+    "last_follower_peak_mps": 1.5192996469765347,
+    "amplification_ratio": 0.6330415195735584,
+    "string_stable_under_test": true,
+    "filter_interventions": 0,
+    "vehicle_count": 4,
+    "duration_s": 32.0
+  },
+  {
+    "controller": "Q-Learning",
+    "leader_peak_mps": 2.3999999999999915,
+    "last_follower_peak_mps": 13.68163989703967,
+    "amplification_ratio": 5.700683290433216,
+    "string_stable_under_test": false,
+    "filter_interventions": 0,
+    "vehicle_count": 4,
+    "duration_s": 32.0
+  },
+  {
+    "controller": "Q+RSS",
+    "leader_peak_mps": 2.3999999999999915,
+    "last_follower_peak_mps": 1.8232568249668475,
+    "amplification_ratio": 0.7596903437361892,
+    "string_stable_under_test": true,
+    "filter_interventions": 5,
+    "vehicle_count": 4,
+    "duration_s": 32.0
+  }
+]

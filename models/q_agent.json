@@ -1,0 +1,38 @@
+{
+  "algorithm": "tabular Q-learning",
+  "episodes": 6000,
+  "seed": 17,
+  "q_table_shape": [
+    9,
+    10,
+    8,
+    7,
+    7,
+    7
+  ],
+  "state_dimensions": [
+    9,
+    10,
+    8,
+    7,
+    7
+  ],
+  "discrete_residual_actions_mps2_added_to_ctg": [
+    -1.2000000476837158,
+    -0.6000000238418579,
+    -0.25,
+    0.0,
+    0.25,
+    0.6000000238418579,
+    1.2000000476837158
+  ],
+  "nominal_controller": "constant-time-gap feedback",
+  "alpha": 0.12,
+  "gamma": 0.985,
+  "epsilon_schedule": "1.0 to 0.05 over the first 80% of episodes",
+  "training_profiles": [
+    "steady",
+    "wave",
+    "moderate brake"
+  ]
+}
