@@ -1,0 +1,27 @@
+1
+00:00:00,000 --> 00:00:14,452
+In their automotive controls lab, Mira asks a focused question: can a small reinforcement-learning correction help adaptive cruise control respond to a sudden cut-in? Dev adds one condition: measure comfort as well as spacing.
+
+2
+00:00:15,352 --> 00:00:29,886
+Adaptive cruise follows a target time gap. A cut-in suddenly reduces available distance, putting gap control and smooth braking under pressure. Here, the cut-in is represented as an instantaneous one-dimensional gap step.
+
+3
+00:00:30,786 --> 00:00:47,792
+The base is a constant-time-gap PID controller. Tabular Q-learning adds one of seven discrete acceleration corrections. A simplified, RSS-inspired braking guard checks the proposed command against a stopping-margin rule, then substitutes a passing command when needed.
+
+4
+00:00:48,692 --> 00:01:03,667
+The table is trained for six thousand episodes on steady, wave and moderate-braking profiles. Then four controllers are compared across five scenario families and 50 matched seeds each. Cut-in and emergency braking are held out.
+
+5
+00:01:04,567 --> 00:01:18,127
+Without the guard, Q-learning averaged a 7.00 metre episode minimum gap across 50 cut-in seeds. The mean share of closing samples with time-to-collision under two seconds was 2.04 percent.
+
+6
+00:01:19,027 --> 00:01:40,261
+With the guard, mean minimum gap increased to 11.35 metres, and that low-TTC share fell to zero. Mean absolute jerk rose from 0.96 to 1.22 metres per second cubed. MPC reached 13.11 metres, zero low-TTC share, and lower jerk at 0.63.
+
+7
+00:01:41,161 --> 00:02:05,505
+These runs recorded no collisions across the four controllers; that is not a safety guarantee. The simulation has one-dimensional point-mass motion, a synthetic gap step, and no lane-change or perception model. The team's next step is measured cut-in replay. This project asks how a small learned correction and an explicit braking check trade margin against comfort before any road claim.

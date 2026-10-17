@@ -13,6 +13,8 @@ The randomized simulation evaluated four controllers over 1,000 matched episodes
 - Short learning guide: [`output/pdf/ACC_RL_Learning_Guide.pdf`](output/pdf/ACC_RL_Learning_Guide.pdf), with a code map, controller explanation, Q-learning walkthrough, simulation settings, evaluation protocol, and results-reading notes. Rebuild it with `python src/make_learning_guide.py`.
 - Matched episode metrics, summaries, intervals, manifest and representative traces: `outputs/formal_50seed/`
 - Three same-seed cut-in comparison clips: `outputs/formal_50seed/ACC_CutIn_Q_Unfiltered.mp4`, `outputs/formal_50seed/ACC_CutIn_Q_RSS_Filtered.mp4` and `outputs/formal_50seed/ACC_CutIn_MPC.mp4`
+- Character-led, narrated project explainer: `workspace/output/ACC_RL_Story_Explainer.mp4` (built from the project's actual trace and 50-seed summary). Captions: matching `.srt`; poster: matching `_Poster.png`.
+- Higgsfield production kit: `workspace/output/ACC_RL_Higgsfield_Shotlist.html` (seven copy-ready, preflighted Seedance 2.0 clips), `workspace/output/ACC_RL_Higgsfield_Quick_Prompt.md`, `workspace/output/ACC_RL_Story_Bible.md`, and reusable character/lab reference PNGs under `workspace/output/ACC_RL_Character_References/`.
 - Presentation-ready explainer film: `workspace/output/ACC_CutIn_Explainer.mp4` (48 seconds, 1080p, silent, with synchronized trace panels and 50-seed results). Storyboard, optional presenter narration and an imported Higgsfield opener prompt: `workspace/output/ACC_CutIn_Higgsfield_Prompt_and_Voiceover.md`
 - Real-world ACC context: the small JRC OpenACC trace in `data/openacc/`, summarized in `outputs/openacc_reference.json`
 - Experimental design and iteration notes: `docs/`
@@ -46,9 +48,18 @@ python src/make_explainer_video.py \
   --trace outputs/formal_50seed/representative_traces.csv \
   --summary outputs/formal_50seed/scenario_summary.csv \
   --output workspace/output/ACC_CutIn_Explainer.mp4
+
+python src/make_story_explainer.py \
+  --trace outputs/formal_50seed/representative_traces.csv \
+  --summary outputs/formal_50seed/scenario_summary.csv \
+  --output workspace/output/ACC_RL_Story_Explainer.mp4
+
+python src/make_higgsfield_shotlist.py
 ```
 
 The explainer renders the Q-Learning, Q+guard and MPC traces from the same representative cut-in episode (seed 17), then reads the aggregate bars from the 50-seed cut-in summary. It labels the event as an instantaneous longitudinal gap step; its graphic does not depict lane-change physics. The end card states that the model has no production ACC head-to-head.
+
+The narrated film uses macOS `say` for a local voice track, NumPy/Pillow for animated characters and graphics, and FFmpeg for encoding. Its numerical panels are loaded from the CSV summary; the Higgsfield shotlist uses the same numbers as post-edit references and keeps generated screen text abstract.
 
 The expanded simulation's measured maximum resident set was about **42 MB** on the project machine. The project uses far less than the available 3–4 GB memory budget.
 
